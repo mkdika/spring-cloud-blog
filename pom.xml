@@ -10,6 +10,7 @@
 	
 	<modules>
 		<module>configserver</module>
-                <module>post</module>
+                <module>eurekaserver</module>
+                <module>post</module>                
 	</modules>
 </project>
