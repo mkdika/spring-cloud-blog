@@ -1,16 +1,15 @@
-package com.mkdika.cloudblog.post;
+package com.mkdika.cloudblog.apigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
+@EnableZuulProxy
 @EnableEurekaClient
-@ConfigurationProperties
-public class PostApplication {
+public class ApigatewayApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(PostApplication.class, args);
+		SpringApplication.run(ApigatewayApplication.class, args);
 	}
 }
