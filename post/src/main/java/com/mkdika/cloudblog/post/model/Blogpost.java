@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BlogPost implements Serializable {
+public class Blogpost implements Serializable {
 
     @Id
     private Integer id;
