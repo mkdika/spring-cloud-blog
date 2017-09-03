@@ -7,3 +7,18 @@
 
 ### References
 
+
+### To-do List
+- [x] Setup Maven Project Group
+- [x] Setup & Test Externalize Configuration with `Config Server`
+- [x] Setup & Test Dynamic Service Registration with `Eureka Server`
+- [x] Setup & Test API Gateway with `Zuul Proxy`
+- [X] Setup & Test Declarative HTTP Client with `Feign Client`
+- [ ] Setup & Test Auth Service with `OAuth2`
+- [ ] Setup & Test Log Analysis with `Elk Stack`
+- [ ] Setup & Test Monitor Dashboard with `Turbine`
+- [ ] Setup & Test Simple Web Front-End with `Vue.Js`
+- [ ] Setup & Test Cross-Origin Resource Sharing
+- [ ] Setup & Test JWT
+- [ ] Setup & Test Data JPA Relation Object
+- [ ] Add Swagger Config for all REST API
