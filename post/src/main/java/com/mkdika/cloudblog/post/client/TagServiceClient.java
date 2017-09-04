@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @FeignClient(name = "tag-service")
 public interface TagServiceClient {
-
+    
     @RequestMapping(method = RequestMethod.GET, value = "/api/tag/post/{postid}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     List<String> getTagsByPost(@PathVariable("postid") Integer postId);
 }

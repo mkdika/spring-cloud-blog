@@ -21,4 +21,5 @@
 - [ ] Setup & Test Cross-Origin Resource Sharing
 - [ ] Setup & Test JWT
 - [ ] Setup & Test Data JPA Relation Object
+- [x] Setup & Test Bean Validation (JSR-303)
 - [ ] Add Swagger Config for all REST API

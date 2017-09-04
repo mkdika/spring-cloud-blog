@@ -7,6 +7,5 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Maikel Chandika <mkdika@gmail.com>
  */
-public interface BlogPostRepository extends CrudRepository<Blogpost, Integer> {        
-    
+public interface BlogPostRepository extends CrudRepository<Blogpost, Integer> {   
 }

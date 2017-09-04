@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -22,11 +24,17 @@ import lombok.NoArgsConstructor;
 public class Blogpost implements Serializable {
 
     @Id
-    private Integer id;
+    @NotNull(message = "ID can not null.")
+    private Integer id;  
+    
+    @NotEmpty(message = "Title can not empty.")
     private String title;
+    
     private String content;
+    
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date createtime;
+    
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date releasetime;
     
