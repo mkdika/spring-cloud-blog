@@ -11,6 +11,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 /**
  *
  * @author Maikel Chandika <mkdika@gmail.com>
+ * This is just for example, the real user profile will be added to 
+ * separated User Service project.
  */
 @Entity
 @Data
