@@ -24,4 +24,5 @@
 - [ ] Setup & Test JWT
 - [x] Setup & Test Data JPA Relation Object
 - [x] Setup & Test Bean Validation (JSR-303)
+- [ ] Setup & Test HATEOAS REST API
 - [ ] Add Swagger Config for all REST API
