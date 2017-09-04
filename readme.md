@@ -6,6 +6,8 @@
 
 
 ### References
+- [Microservice Architectures With Spring Cloud and Docker](https://dzone.com/articles/microservice-architecture-with-spring-cloud-and-do)
+- [Spring Boot REST Request Validation](https://lmonkiewicz.com/programming/get-noticed-2017/spring-boot-rest-request-validation/)
 
 
 ### To-do List
