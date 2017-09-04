@@ -46,7 +46,7 @@ public class BlogPostController {
 
     @RequestMapping(method = GET, value = "/{id}")
     public ResponseEntity getBlogpostById(@PathVariable Integer id) {
-        Blogpost blogpost = repository.findOne(id);
+        Blogpost blogpost = repository.findOne(id);        
         if (blogpost != null) {
             blogpost.setTags(tagService.getTagsByPost(id));
             return new ResponseEntity(blogpost, HttpStatus.OK);

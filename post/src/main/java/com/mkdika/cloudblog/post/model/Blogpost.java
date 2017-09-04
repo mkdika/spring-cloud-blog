@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
@@ -40,4 +43,8 @@ public class Blogpost implements Serializable {
     
     @Transient
     List<String> tags;
+    
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="created_by")
+    private UserProfile createdBy;
 }
