@@ -3,6 +3,7 @@ package com.mkdika.cloudblog.post.controller;
 import com.mkdika.cloudblog.post.client.TagServiceClient;
 import com.mkdika.cloudblog.post.model.Blogpost;
 import com.mkdika.cloudblog.post.repository.BlogPostRepository;
+import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,10 @@ public class BlogPostController {
     @Autowired
     private TagServiceClient tagService;
 
+    @ApiOperation(
+            value = "Retrieve all blog post.",
+            notes = "Not available.",
+            produces = "application/json")
     @RequestMapping(method = GET)
     public ResponseEntity getBlogposts() {
         List<Blogpost> list = (List<Blogpost>) repository.findAll();
@@ -44,9 +49,13 @@ public class BlogPostController {
         }
     }
 
+    @ApiOperation(
+            value = "Retrieve blog post by ID.",
+            notes = "Not available.",
+            produces = "application/json")
     @RequestMapping(method = GET, value = "/{id}")
     public ResponseEntity getBlogpostById(@PathVariable Integer id) {
-        Blogpost blogpost = repository.findOne(id);        
+        Blogpost blogpost = repository.findOne(id);
         if (blogpost != null) {
             blogpost.setTags(tagService.getTagsByPost(id));
             return new ResponseEntity(blogpost, HttpStatus.OK);
@@ -55,6 +64,10 @@ public class BlogPostController {
         }
     }
 
+    @ApiOperation(
+            value = "Create or Update blog post.",
+            notes = "Not available.",
+            produces = "application/json")
     @RequestMapping(method = {POST, PUT})
     public ResponseEntity addUpdateBlogpost(@Valid @RequestBody Blogpost blogpost) {
         try {
@@ -65,6 +78,10 @@ public class BlogPostController {
         }
     }
 
+    @ApiOperation(
+            value = "Delete blog post by ID.",
+            notes = "Not available.",
+            produces = "application/json")
     @RequestMapping(method = DELETE, value = "/{id}")
     public ResponseEntity deleteBlogpost(@PathVariable Integer id) {
         Blogpost blogpost = repository.findOne(id);

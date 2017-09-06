@@ -1,5 +1,6 @@
 package com.mkdika.cloudblog.post.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -24,6 +25,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Blogpost implements Serializable {
 
     @Id

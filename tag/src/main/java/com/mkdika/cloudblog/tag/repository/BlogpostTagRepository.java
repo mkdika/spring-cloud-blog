@@ -10,6 +10,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface BlogpostTagRepository extends CrudRepository<BlogpostTag, Integer>{    
     
-    public List<BlogpostTag> findByPostId(Integer postid);
-    
+    public List<BlogpostTag> findByPostId(Integer postid);    
 }
