@@ -23,11 +23,11 @@
  */
 package com.mkdika.cloudblog.post.controller;
 
+import com.mkdika.cloudblog.post.controller.resource.PageResource;
 import com.mkdika.cloudblog.post.client.TagServiceClient;
 import com.mkdika.cloudblog.post.model.Blogpost;
 import com.mkdika.cloudblog.post.repository.BlogPostRepository;
 import io.swagger.annotations.ApiOperation;
-import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,6 +40,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.hateoas.Link;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 /**
  *
@@ -60,16 +65,20 @@ public class BlogPostController {
             notes = "Not available.",
             produces = "application/json")
     @RequestMapping(method = GET)
-    public ResponseEntity getBlogposts() {
-        List<Blogpost> list = (List<Blogpost>) repository.findAll();
-        if (list.size() > 0) {
-            list.forEach((b) -> {
-                b.setTags(tagService.getTagsByPost(b.getId()));
+    public ResponseEntity getBlogposts(@PageableDefault(sort = {"pid"},
+            page = 0, size = 5) Pageable pageable) {
+        Page<Blogpost> bpage = repository.findAll(pageable);
+        if (bpage.getTotalElements() > 0) {
+            bpage.getContent().forEach((b) -> {
+                Link selfLink = linkTo(BlogPostController.class).slash(b.getPid()).withSelfRel();
+                b.add(selfLink);
+                b.setTags(tagService.getTagsByPost(b.getPid()));
             });
-            return new ResponseEntity(list, HttpStatus.OK);
+            return new ResponseEntity(new PageResource<>(bpage, "page", "size"), HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
+
     }
 
     @ApiOperation(
@@ -80,6 +89,8 @@ public class BlogPostController {
     public ResponseEntity getBlogpostById(@PathVariable Integer id) {
         Blogpost blogpost = repository.findOne(id);
         if (blogpost != null) {
+            Link selfLink = linkTo(BlogPostController.class).slash(blogpost.getPid()).withSelfRel();
+            blogpost.add(selfLink);
             blogpost.setTags(tagService.getTagsByPost(id));
             return new ResponseEntity(blogpost, HttpStatus.OK);
         } else {

@@ -39,6 +39,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.hateoas.ResourceSupport;
 
 /**
  *
@@ -49,11 +50,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Blogpost implements Serializable {
+public class Blogpost extends ResourceSupport implements Serializable {
 
     @Id
     @NotNull(message = "ID can not null.")
-    private Integer id;  
+    private Integer pid;  
     
     @NotEmpty(message = "Title can not empty.")
     private String title;

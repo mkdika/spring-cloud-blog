@@ -49,7 +49,7 @@ public class BlogpostTag extends ResourceSupport implements Serializable {
 
     @Id
     @NotNull(message = "ID can not null.")    
-    private Integer id;
+    private Integer pid;
     
     @NotNull(message = "Post ID can not null.")
     private Integer postId;

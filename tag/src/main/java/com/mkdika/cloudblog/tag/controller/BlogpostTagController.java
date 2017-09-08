@@ -62,13 +62,9 @@ public class BlogpostTagController {
                 .stream()
                 .map(b -> b.getTag())
                 .collect(Collectors.toList());
-        if (list != null && list.size() > 0) {
-            return new ResponseEntity(list, HttpStatus.OK);
-        } else {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
+        return new ResponseEntity(list, HttpStatus.OK);
     }
-    
+
     @ApiOperation(
             value = "Retrieve all post tag.",
             notes = "Not available.",
@@ -77,7 +73,7 @@ public class BlogpostTagController {
     public ResponseEntity getBlogposts() {
         List<BlogpostTag> list = (List<BlogpostTag>) repository.findAll();
         if (list.size() > 0) {
-            return new ResponseEntity(list, HttpStatus.OK);            
+            return new ResponseEntity(list, HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
@@ -90,7 +86,7 @@ public class BlogpostTagController {
     @RequestMapping(method = GET, value = "/{id}")
     public ResponseEntity getBlogpostById(@PathVariable Integer id) {
         BlogpostTag tag = repository.findOne(id);
-        if (tag != null) {            
+        if (tag != null) {
             return new ResponseEntity(tag, HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -110,7 +106,7 @@ public class BlogpostTagController {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
+
     @ApiOperation(
             value = "Delete blog Tag by ID.",
             notes = "Not available.",
@@ -118,7 +114,7 @@ public class BlogpostTagController {
     @RequestMapping(method = DELETE, value = "/{id}")
     public ResponseEntity deleteBlogpost(@PathVariable Integer id) {
         BlogpostTag tag = repository.findOne(id);
-        if (tag != null) {            
+        if (tag != null) {
             repository.delete(tag);
             return new ResponseEntity(HttpStatus.OK);
         } else {
