@@ -11,8 +11,10 @@
     <modules>
         <module>configserver</module>
         <module>eurekaserver</module>
-        <module>apigateway</module>
+        <module>authserver</module>
         <module>post</module>                
         <module>tag</module>                
+        <module>apigateway</module>
+        <module>monitoring</module>
     </modules>
 </project>

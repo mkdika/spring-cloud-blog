@@ -8,6 +8,7 @@
 ### References
 - [Microservice Architectures With Spring Cloud and Docker](https://dzone.com/articles/microservice-architecture-with-spring-cloud-and-do)
 - [Spring Boot REST Request Validation](https://lmonkiewicz.com/programming/get-noticed-2017/spring-boot-rest-request-validation/)
+- [HATEOAS paging with Spring MVC and Spring Data JPA](https://blog.zenika.com/2012/06/15/hateoas-paging-with-spring-mvc-and-spring-data-jpa/)
 
 
 ### To-do List
